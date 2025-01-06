@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server });
 
-const userList = {};
+let userList = {};
 const topicList = {
   "과일": [
     "사과",
