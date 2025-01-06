@@ -77,12 +77,17 @@ wss.on('connection', (ws) => {
 
     if(data) {
       console.log(data);
+      
+      if (data.type === 'ClearAllCathy') {
+        userList = {};
+        sendUserList();
+      }
 
       if (data.type === 'requestUserList') {
         manageWs = ws;
         sendUserList();
       }
-      
+
       if (data.type === 'selectTopic') {
         const spyKey = randomKey(userList);
         const topic = getRandomItem(topicList[data.topic]);
